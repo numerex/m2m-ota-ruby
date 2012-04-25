@@ -432,7 +432,7 @@ module M2M_OTA
       str += self.to_hex
       str += "</raw>\n"
       str += " <header>\n"
-      str += "  <type>M</type>\n"
+      str += "  <type>#{@messageType}</type>\n"
       str += "  <version>\n"
       str += "   <major>#{@majorVersion}</major>\n"
       str += "   <minor>#{@minorVersion}</minor>\n"
