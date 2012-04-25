@@ -20,7 +20,6 @@ module M2M_OTA
   MAJOR_VERSION       = 1
   MINOR_VERSION       = 0
   
-  header_size = 			13;
   MESSAGE_TYPE_POS     = 0
   PROTOCOL_VERSION_POS = 1
   EVENT_CODE_POS       = 2
@@ -35,13 +34,23 @@ module M2M_OTA
     BigEndian ? val : ([val].pack("Q").reverse.unpack("Q").first)
   end
 
-  class OTA_Byte_Object
-    def initialize(objId, objValue)
-      @objType  = OBJTYPE_BYTE
+  class OTA_Exception < Exception
+  end
+  
+  class OTA_Object
+    attr_accessor :objId, :objValue
+    def initialize(objValue, objId = 0)
       @objId    = objId
       @objValue = objValue
     end
-
+  end
+  
+  class OTA_Byte < OTA_Object
+    def initialize(objValue, objId = 0)
+      super(objValue, objId)
+      @objType  = OBJTYPE_BYTE
+    end
+    
     # to_wire
     def to_w
       [@objId, @objType, @objValue].pack('CCC')
@@ -52,13 +61,28 @@ module M2M_OTA
     end
   end
 
-  class OTA_Float_Object
-    def initialize(objId, objValue)
-      @objType  = OBJTYPE_FLOAT
-      @objId    = objId
-      @objValue = objValue
+  class OTA_Int < OTA_Object
+    def initialize(objValue, objId = 0)
+      super(objValue, objId)
+      @objType = OBJTYPE_INT
     end
 
+    # Ruby implementation uses 4 bytes for all integers
+    def to_w
+      [@objId, @objType, 4, @objValue].pack('CCCN')
+    end
+
+    def to_s
+      "<object id='#{@objId}' type='byte' value='#{@objValue}'>"
+    end
+  end
+
+  class OTA_Float < OTA_Object
+    def initialize(objValue, objId = 0)
+      super(objValue, objId)
+      @objType  = OBJTYPE_FLOAT
+    end
+    
     # to_wire
     def to_w
       [@objId, @objType, @objValue].pack('CCg')
@@ -68,14 +92,13 @@ module M2M_OTA
       "<object id='#{@objId}' type='float' value='#{@objValue}'>"
     end
   end
-
-  class OTA_String_Object
-    def initialize(objId, objValue)
+  
+  class OTA_String < OTA_Object
+    def initialize(objValue, objId = 0)
+      super(objValue, objId)
       @objType  = OBJTYPE_STRING
-      @objId    = objId
-      @objValue = objValue
     end
-
+    
     # to_wire
     def to_w
       [@objId, @objType, @objValue.length, @objValue].pack("CCnA*")
@@ -85,21 +108,69 @@ module M2M_OTA
       "<object id='#{@objId}' type='string' value='#{@objValue}'>"
     end
   end
+
+  class OTA_Float_Array < OTA_Object
+    def initialize(objValue, objId = 0)
+      super(objValue, objId)
+      @objType  = OBJTYPE_ARRAY_FLOAT
+    end
+
+    def to_w
+      [@objId, @objType, @objValue.length * 4, 4, @objValue].flatten.pack("CCnCg*")
+    end
+
+    def to_s
+      "<object id'#{@objId}' type='array[float]' value='#{@objValue}'>"
+    end
+  end
+
+  class OTA_Byte_Array < OTA_Object
+    def initialize(objValue, objId = 0)
+      super(objValue, objId)
+      @objType = OBJTYPE_ARRAY_BYTE
+    end
+
+    def to_w
+      [@objId, @objType, @objValue.length, @objValue].flatten.pack("CCnC*")
+    end
+
+    def to_s
+      "<object id'#{@objId}' type='array[byte]' value='#{@objValue}'>"
+    end
+  end
+
+  class OTA_Int_Array < OTA_Object
+    def initialize(objValue, objId = 0)
+      super(objValue, objId)
+      @objType = OBJTYPE_ARRAY_INT
+    end
+
+    def to_w
+      [@objId, @objType, @objValue.length * 4, 4, @objValue].flatten.pack("CCnN*")
+    end
+
+    def to_s
+      "<object id'#{@objId}' type='array[int]' value='#{@objValue}'>"
+    end
+  end
   
   class OTA_Message
     
     attr_accessor  :messageType, :eventCode, :sequenceId,  :timestamp
+    attr_accessor  :autoObjectId
     attr_reader    :majorVersion, :minorVersion
     attr_reader    :objects
     
-    def initialize
-      @messageType  = 0
+    def initialize(p={})
+      @messageType  = p[:messageType] || 0
       @majorVersion = MAJOR_VERSION
       @minorVersion = MINOR_VERSION
-      @eventCode    = 0
-      @sequenceId   = 0
-      @timestamp    = 0
+      @eventCode    = p[:eventCode]   || 0
+      @sequenceId   = p[:sequenceId]  || 0
+      @timestamp    = p[:timestamp]   || Time.now.to_i * 1000
       @objects      = []
+
+      @autoObjectId = false
     end
     
     def header
@@ -107,27 +178,26 @@ module M2M_OTA
       header = [messageType, version, eventCode, sequenceId, htonq(timestamp)]
       header.pack("CCCnQ")
     end
+
+    def <<(obj)
+      raise OTA_Exception.new("Invalid object added to message") if not obj.is_a? OTA_Object
+      @objects << obj
+    end
     
-    def add_byte(objId, objValue)
-      byteObj = OTA_Byte_Object.new(objId, objValue)
-      @objects << byteObj
-    end
-
-    def add_float(objId, objValue)
-      floatObj = OTA_Float_Object.new(objId, objValue)
-      @objects  << floatObj
-    end
-
-    def add_string(objId, objValue)
-      stringObj = OTA_String_Object.new(objId, objValue)
-      @objects << stringObj
-    end
-
     # to_w
     def to_w
       msg = header
       msg   += [@objects.length].pack("C")
+
+      if @autoObjectId then
+        autoObjectId = 1
+        autoSet = lambda {|o|
+          o.objId       = autoObjectId
+          autoObjectId += 1
+        }
+      end
       @objects.each do |object|
+        autoSet.call(object) if autoSet
         msg += object.to_w
       end
       msg
