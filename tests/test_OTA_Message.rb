@@ -1,6 +1,5 @@
-require 'OTA_Message'
+require 'm2m-ota'
 require 'test/unit'
-
 require 'hexdump'
 
 include M2M_OTA
@@ -67,6 +66,7 @@ class TestOTAMessage < Test::Unit::TestCase
 
     msg << OTA_Float.new(79.5, 1)
     msg << OTA_String.new("Temperature", 2)
+    msg << OTA_Timestamp.new(timestamp)
 
     puts msg.to_w.hexdump()
 
@@ -90,6 +90,54 @@ class TestOTAMessage < Test::Unit::TestCase
     msg << OTA_Int.new(0xdeadbeef)
     puts msg.to_w.hexdump()
     puts msg.to_s
+
+  end
+
+  def testReference
+    msg = OTA_Message.new(:messageType => MOBILE_ORIGINATED_EVENT,
+                          :eventCode   => 20,
+                          :sequenceId  => 20,
+                          :timestamp   => 0xff)
+    msg.autoObjectId = true
+
+    msg << OTA_Byte.new(0x11)
+
+    puts msg.to_w.hexdump()
+    puts msg.to_s
+  end
+
+  def testFromWire
+
+    puts "-- testFromWire --"
+
+    msg = OTA_Message.new(:messageType => MOBILE_ORIGINATED_EVENT,
+                          :eventCode   => 20,
+                          :sequenceId  => 20,
+                          :timestamp   => 0xff)
+    msg.autoObjectId = true
+
+    now = timestamp
+
+    msg << OTA_Byte.new(0x11)
+    msg << OTA_Int.new(0x40)
+    msg << OTA_Float.new(79.5)
+    msg << OTA_String.new("An abritrary string of arbitrary length")
+    msg << OTA_Float_Array.new([1.0, 2.0, 100.0, 100000.0])
+    msg << OTA_Byte_Array.new([0x10, 0x20, 0x30, 0xde, 0xed, 0xbe, 0xef])
+    msg << OTA_Int_Array.new([1245, 4578, 10249, -9347, 8198 , 128000, 2147483647])
+    msg << OTA_Timestamp.new(timestamp)
+
+    puts "Constructed Message -->"
+    puts msg.to_w.hexdump()
+    puts msg.to_s
+
+
+    wireMsg = OTA_Message.new(:data => msg.to_w)
+    puts "Wire Message --->"
+    puts wireMsg.to_w.hexdump()
+    puts wireMsg.to_s
+
+    assert_equal(msg.to_w, wireMsg.to_w)
 
   end
 
