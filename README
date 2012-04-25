@@ -2,7 +2,20 @@ Numerex Machine-to-Machine Over the Air Protocol
 
 Quick Start
 
-<pre>
+================================================================================
+
+Installation
+
+git clone git@github.com:numerex/m2m-ota-ruby
+cd m2m-ota-ruby
+gem build m2m-ota.gemspec
+
+gem install m2m-ota-VERSION.gem
+
+================================================================================
+
+Example
+
 require 'm2m-ota'
 
 include M2M_OTA
@@ -25,10 +38,9 @@ msg << OTA_Timestamp.new(M2M_OTA::timestamp)
 
 msgForWire = msg.to_w
 
-puts "Sending " + msg
-</pre>
+puts "Sending " + msg.to_s
 
-
+================================================================================
 
 
 
