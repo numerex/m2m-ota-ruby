@@ -46,7 +46,7 @@ module M2M
       if @autoObjectId then
         autoObjectId = 1
         autoSet = lambda {|o|
-          o.objId       = autoObjectId
+          o.id       = autoObjectId
           autoObjectId += 1
         }
       end

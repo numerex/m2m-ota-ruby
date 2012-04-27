@@ -1,8 +1,8 @@
-require 'test_helper'
+require_relative 'test_helper'
 
 module M2M
 
-  class TestOTAMessage < Test::Unit::TestCase
+  class OTAMessageTest < Test::Unit::TestCase
 
     include OTACommon
 
@@ -64,7 +64,7 @@ module M2M
 
       puts msg.timestamp
 
-      msg << OTAFloat.new(79.5, 1)
+      msg << OTAFloat.new(79.5, 4, 1)
       msg << OTAString.new("Temperature", 2)
       msg << OTATimestamp.new(current_timestamp)
 

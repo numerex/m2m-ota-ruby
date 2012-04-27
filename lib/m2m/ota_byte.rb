@@ -4,29 +4,14 @@ module M2M
 
   class OTAByte < OTAObject
 
-    def initialize(objValue, objId = 0)
-      super(objValue, objId)
-      @objType  = OBJTYPE_BYTE
+    def initialize(value,id = 0)
+      value.class == Hash ? super(value) : super(:id => id,:value => value.to_i)
     end
 
-    # to_w
-    def to_w
-      [@objId, @objType, @objValue].pack('CCC')
+    def self.expected_type
+      OBJTYPE_BYTE
     end
 
-    # from_w
-    def self.from_w(buf)
-      obj = buf.unpack('CCC')
-      objId    = obj[0]
-      objType  = obj[1]
-      objValue = obj[2]
-      raise OTAException.new('Invalid BYTE from wire') if objType != OBJTYPE_BYTE
-      OTAByte.new(objValue, objId)
-    end
-
-    def to_s
-      "<object id='#{@objId}' type='byte' value='#{@objValue}'>"
-    end
   end
 
 end

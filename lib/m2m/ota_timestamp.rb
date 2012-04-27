@@ -6,28 +6,36 @@ module M2M
 
     extend OTACommon
 
-    def initialize(objValue, objId = 0)
-      super(objValue, objId)
-      @objType = OBJTYPE_TIMESTAMP
+    def initialize(value,id = 0)
+      case value
+        when Hash
+          super(value)
+        when Time
+          super(:id => id,:value => value.to_i * 1000)
+        when Fixnum
+          super(:id => id,:value => value.to_i)
+        else
+          raise OTAException.new("Invalid timestamp value type: #{value.class}")
+      end
+    end
+
+    def self.expected_type
+      OBJTYPE_TIMESTAMP
     end
 
     def to_w
-      [@objId, @objType, htonq(@objValue)].flatten.pack("CCQ")
+      [@id, @type, htonq(@value)].flatten.pack("CCQ")
     end
 
-    def self.from_w(buf)
-      obj = buf.unpack('CCQ')
+    def self.from_w(buffer)
+      obj = buffer.unpack('CCQ')
       objId = obj[0]
       objType = obj[1]
       objValue = htonq(obj[2])
 
-      raise OTAException.new('Invalid object from wire') if objType != OBJTYPE_TIMESTAMP
+      raise OTAException.new('Invalid TIMESTAMP from wire') unless objType == OBJTYPE_TIMESTAMP
 
-      OTATimestamp.new(objValue, objId)
-    end
-
-    def to_s
-      "<object id'#{@objId}' type='array[int]' value='#{@objValue}'>"
+      new(objValue, objId)
     end
 
   end

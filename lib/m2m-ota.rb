@@ -1,5 +1,8 @@
 module M2M
 
+  class OTAException < Exception
+  end
+
   module OTACommon
 
     MOBILE_ORIGINATED_EVENT = 0xAA
@@ -22,19 +25,56 @@ module M2M
     MAJOR_VERSION           = 1
     MINOR_VERSION           = 0
 
-    MESSAGE_TYPE_POS         = 0
-    PROTOCOL_VERSION_POS     = 1
-    EVENT_CODE_POS           = 2
-    SEQ_ID_POS               = 3
-    TIMESTAMP_POS            = 5
+    MESSAGE_TYPE_POS        = 0
+    PROTOCOL_VERSION_POS    = 1
+    EVENT_CODE_POS          = 2
+    SEQ_ID_POS              = 3
+    TIMESTAMP_POS           = 5
 
-    MAX_PACKET_SIZE          = 1024
+    MAX_PACKET_SIZE         = 1024
 
     IS_BIG_ENDIAN           = [1].pack('s') == [1].pack('n')
+    
+    OBJTYPE_LABELS = {
+        OBJTYPE_BYTE        => 'byte',
+        OBJTYPE_ARRAY_BYTE  => 'array[byte]',
+        OBJTYPE_FLOAT       => 'float',
+        OBJTYPE_ARRAY_FLOAT => 'array[float]',
+        OBJTYPE_INT         => 'int',
+        OBJTYPE_ARRAY_INT   => 'array[int]',
+        OBJTYPE_STRING      => 'string',
+        OBJTYPE_TIMESTAMP   => 'timestamp',
+    }
 
+    OBJHEADER_SIZE          = 2
+    OBJHEADER_FORMAT        = 'CC'
+    OBJBODY_VARIABLE_TYPES  = {
+        OBJTYPE_ARRAY_BYTE  => true,
+        OBJTYPE_ARRAY_FLOAT => true,
+        OBJTYPE_ARRAY_INT   => true,
+        OBJTYPE_STRING      => true,
+    }
 
-    class OTAException < Exception
-    end
+    SIZE_FLOAT_SINGLE       = 4
+    SIZE_FLOAT_DOUBLE       = 8
+
+    SIZE_INT_TINY           = 1
+    SIZE_INT_SHORT          = 2
+    SIZE_INT_LONG           = 4
+
+    OBJBODY_VALUE_FORMATS   = {
+        OBJTYPE_BYTE        => 'C',
+        OBJTYPE_ARRAY_BYTE  => 'C*',
+
+        OBJTYPE_FLOAT       => {SIZE_FLOAT_SINGLE => 'g',SIZE_FLOAT_DOUBLE => 'G'},
+        OBJTYPE_ARRAY_FLOAT => {SIZE_FLOAT_SINGLE => 'g*',SIZE_FLOAT_DOUBLE => 'G*'},
+
+        OBJTYPE_INT         => {SIZE_INT_TINY => 'C',SIZE_INT_SHORT => 'n',SIZE_INT_LONG => 'N'},
+        OBJTYPE_ARRAY_INT   => {SIZE_INT_TINY => 'C*',SIZE_INT_SHORT => 'n*',SIZE_INT_LONG => 'N*'},
+
+        OBJTYPE_STRING      => 'A*',
+        OBJTYPE_TIMESTAMP   => 'Q',
+    }
 
     def crc(data)
       _m = 0
