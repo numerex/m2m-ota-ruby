@@ -1,4 +1,5 @@
-=== Numerex Machine-to-Machine Over the Air Protocol
+Numerex Machine-to-Machine Over the Air Protocol
+================================================
 
 === Installation
 
