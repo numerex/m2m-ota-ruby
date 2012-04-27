@@ -10,11 +10,11 @@ module M2M
 
       timestamp = Time.now.to_i * 1000
       f = M2M::OTAMessage.new(:timestamp => timestamp)
-      assert_equal(0, f.messageType)
-      assert_equal(1, f.majorVersion)
-      assert_equal(0, f.minorVersion)
-      assert_equal(0, f.eventCode)
-      assert_equal(0, f.sequenceId)
+      assert_equal(0, f.message_type)
+      assert_equal(1, f.major_version)
+      assert_equal(0, f.minor_version)
+      assert_equal(0, f.event_code)
+      assert_equal(0, f.sequence_number)
       assert_equal(timestamp, f.timestamp)
 
     end
@@ -24,16 +24,16 @@ module M2M
       f = M2M::OTAMessage.new
       n = Time.now.to_i * 1000 # In milliseconds
 
-      f.messageType = MOBILE_ORIGINATED_EVENT
-      f.eventCode = 0x66
-      f.sequenceId = 100
+      f.message_type = MOBILE_ORIGINATED_EVENT
+      f.event_code = 0x66
+      f.sequence_number = 100
       f.timestamp = n
 
-      assert_equal(MOBILE_ORIGINATED_EVENT, f.messageType)
-      assert_equal(MAJOR_VERSION, f.majorVersion)
-      assert_equal(MINOR_VERSION, f.minorVersion)
-      assert_equal(0x66, f.eventCode)
-      assert_equal(100, f.sequenceId)
+      assert_equal(MOBILE_ORIGINATED_EVENT, f.message_type)
+      assert_equal(MAJOR_VERSION, f.major_version)
+      assert_equal(MINOR_VERSION, f.minor_version)
+      assert_equal(0x66, f.event_code)
+      assert_equal(100, f.sequence_number)
       assert_equal(n, f.timestamp)
 
     end
@@ -57,9 +57,9 @@ module M2M
     def testAddObjects
 
       msg = M2M::OTAMessage.new
-      msg.messageType = MOBILE_ORIGINATED_EVENT
-      msg.eventCode = 20
-      msg.sequenceId = 50
+      msg.message_type = MOBILE_ORIGINATED_EVENT
+      msg.event_code = 20
+      msg.sequence_number = 50
       msg.timestamp = Time.now.to_i * 1000
 
       puts msg.timestamp
@@ -74,11 +74,11 @@ module M2M
 
     def testAutoset
 
-      msg = M2M::OTAMessage.new(:messageType => MOBILE_ORIGINATED_EVENT,
-                           :eventCode => 10,
-                           :sequenceId => 1)
+      msg = M2M::OTAMessage.new(:message_type => MOBILE_ORIGINATED_EVENT,
+                           :event_code => 10,
+                           :sequence_number => 1)
 
-      msg.autoObjectId = true
+      msg.auto_id = true
 
       msg << OTAByte.new(7)
       msg << OTAString.new("This is a string")
@@ -94,11 +94,11 @@ module M2M
     end
 
     def testReference
-      msg = M2M::OTAMessage.new(:messageType => MOBILE_ORIGINATED_EVENT,
-                           :eventCode => 20,
-                           :sequenceId => 20,
+      msg = M2M::OTAMessage.new(:message_type => MOBILE_ORIGINATED_EVENT,
+                           :event_code => 20,
+                           :sequence_number => 20,
                            :timestamp => 0xff)
-      msg.autoObjectId = true
+      msg.auto_id = true
 
       msg << OTAByte.new(0x11)
 
@@ -110,11 +110,11 @@ module M2M
 
       puts "-- testFromWire --"
 
-      msg = M2M::OTAMessage.new(:messageType => MOBILE_ORIGINATED_EVENT,
-                           :eventCode => 20,
-                           :sequenceId => 20,
+      msg = M2M::OTAMessage.new(:message_type => MOBILE_ORIGINATED_EVENT,
+                           :event_code => 20,
+                           :sequence_number => 20,
                            :timestamp => 0xff)
-      msg.autoObjectId = true
+      msg.auto_id = true
 
       msg << OTAByte.new(0x11)
       msg << OTAInt.new(0x40)
