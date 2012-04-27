@@ -54,12 +54,46 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><div id='filecontents'>
-<p>Numerex Machine-to-Machine Over the Air Protocol</p>
+    <div id="content"><div id='filecontents'><h1>Numerex Machine-to-Machine Over the Air Protocol <a href="http://travis-ci.org/spemmons/m2m-ota-ruby"><img src="https://secure.travis-ci.org/spemmons/m2m-ota-ruby.png?branch=master" alt="Build Status"></a></h1>
+
+<p>=== Installation</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_git'>git</span> <span class='id identifier rubyid_clone'>clone</span> <span class='id identifier rubyid_git'>git</span><span class='ivar'>@github</span><span class='period'>.</span><span class='id identifier rubyid_com'>com</span><span class='symbol'>:numerex</span><span class='op'>/</span><span class='id identifier rubyid_m2m'>m2m</span><span class='op'>-</span><span class='id identifier rubyid_ota'>ota</span><span class='op'>-</span><span class='id identifier rubyid_ruby'>ruby</span>
+<span class='id identifier rubyid_cd'>cd</span> <span class='id identifier rubyid_m2m'>m2m</span><span class='op'>-</span><span class='id identifier rubyid_ota'>ota</span><span class='op'>-</span><span class='id identifier rubyid_ruby'>ruby</span>
+<span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_build'>build</span> <span class='id identifier rubyid_m2m'>m2m</span><span class='op'>-</span><span class='id identifier rubyid_ota'>ota</span><span class='period'>.</span><span class='id identifier rubyid_gemspec'>gemspec</span>
+<span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_m2m'>m2m</span><span class='op'>-</span><span class='id identifier rubyid_ota'>ota</span><span class='op'>-</span><span class='const'>VERSION</span><span class='period'>.</span><span class='id identifier rubyid_gem'>gem</span>
+</code></pre>
+
+<p>=== Example</p>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>m2m-ota</span><span class='tstring_end'>'</span></span>
+
+<span class='id identifier rubyid_include'>include</span> <span class='const'>M2M_OTA</span>
+
+<span class='id identifier rubyid_msg'>msg</span> <span class='op'>=</span> <span class='const'>OTA_Message</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:messageType</span> <span class='op'>=&gt;</span> <span class='const'>MOBILE_ORIGINATED_EVENT</span><span class='comma'>,</span>
+                      <span class='symbol'>:eventCode</span>   <span class='op'>=&gt;</span> <span class='int'>20</span><span class='comma'>,</span>
+                      <span class='symbol'>:sequenceId</span>  <span class='op'>=&gt;</span> <span class='int'>20</span><span class='comma'>,</span>
+                      <span class='symbol'>:timestamp</span>   <span class='op'>=&gt;</span> <span class='const'>M2M_OTA</span><span class='op'>::</span><span class='id identifier rubyid_current_timestamp'>current_timestamp</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_msg'>msg</span><span class='period'>.</span><span class='id identifier rubyid_autoObjectId'>autoObjectId</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='comment'># Generate incrementing object ids
+</span>
+<span class='id identifier rubyid_msg'>msg</span> <span class='op'>&lt;&lt;</span> <span class='const'>OTA_Byte</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>0x11</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_msg'>msg</span> <span class='op'>&lt;&lt;</span> <span class='const'>OTA_Int</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>0x40</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_msg'>msg</span> <span class='op'>&lt;&lt;</span> <span class='const'>OTA_Float</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>79.5</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_msg'>msg</span> <span class='op'>&lt;&lt;</span> <span class='const'>OTA_String</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>An abritrary string of arbitrary length</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_msg'>msg</span> <span class='op'>&lt;&lt;</span> <span class='const'>OTA_Float_Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>2.0</span><span class='comma'>,</span> <span class='float'>100.0</span><span class='comma'>,</span> <span class='float'>100000.0</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_msg'>msg</span> <span class='op'>&lt;&lt;</span> <span class='const'>OTA_Byte_Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>0x10</span><span class='comma'>,</span> <span class='int'>0x20</span><span class='comma'>,</span> <span class='int'>0x30</span><span class='comma'>,</span> <span class='int'>0xde</span><span class='comma'>,</span> <span class='int'>0xed</span><span class='comma'>,</span> <span class='int'>0xbe</span><span class='comma'>,</span> <span class='int'>0xef</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_msg'>msg</span> <span class='op'>&lt;&lt;</span> <span class='const'>OTA_Int_Array</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1245</span><span class='comma'>,</span> <span class='int'>4578</span><span class='comma'>,</span> <span class='int'>10249</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>9347</span><span class='comma'>,</span> <span class='int'>8198</span> <span class='comma'>,</span> <span class='int'>128000</span><span class='comma'>,</span> <span class='int'>2147483647</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_msg'>msg</span> <span class='op'>&lt;&lt;</span> <span class='const'>OTA_Timestamp</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>M2M_OTA</span><span class='op'>::</span><span class='id identifier rubyid_current_timestamp'>current_timestamp</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_msg_for_wire'>msg_for_wire</span> <span class='op'>=</span> <span class='id identifier rubyid_msg'>msg</span><span class='period'>.</span><span class='id identifier rubyid_to_w'>to_w</span>
+
+<span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Sending </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_msg'>msg</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+</code></pre>
 </div></div>
     
     <div id="footer">
-  Generated on Wed Apr 25 15:35:19 2012 by 
+  Generated on Fri Apr 27 14:53:44 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.3).
 </div>

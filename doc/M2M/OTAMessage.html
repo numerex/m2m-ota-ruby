@@ -1,0 +1,1353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: M2M::OTAMessage
+  
+    &mdash; Documentation by YARD 0.7.5
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (O)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../M2M.html" title="M2M (module)">M2M</a></span></span>
+     &raquo; 
+    <span class="title">OTAMessage</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: M2M::OTAMessage
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">M2M::OTAMessage</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="OTACommon.html" title="M2M::OTACommon (module)">OTACommon</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/m2m/ota_message.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+
+
+
+  <h2>Constant Summary</h2>
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="OTACommon.html" title="M2M::OTACommon (module)">OTACommon</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="OTACommon.html#EVENT_CODE_POS-constant" title="M2M::OTACommon::EVENT_CODE_POS (constant)">M2M::OTACommon::EVENT_CODE_POS</a></span>, <span class='object_link'><a href="OTACommon.html#IMPLIED_SIZE_BY_FORMAT-constant" title="M2M::OTACommon::IMPLIED_SIZE_BY_FORMAT (constant)">M2M::OTACommon::IMPLIED_SIZE_BY_FORMAT</a></span>, <span class='object_link'><a href="OTACommon.html#IS_BIG_ENDIAN-constant" title="M2M::OTACommon::IS_BIG_ENDIAN (constant)">M2M::OTACommon::IS_BIG_ENDIAN</a></span>, <span class='object_link'><a href="OTACommon.html#MAJOR_VERSION-constant" title="M2M::OTACommon::MAJOR_VERSION (constant)">M2M::OTACommon::MAJOR_VERSION</a></span>, <span class='object_link'><a href="OTACommon.html#MAX_PACKET_SIZE-constant" title="M2M::OTACommon::MAX_PACKET_SIZE (constant)">M2M::OTACommon::MAX_PACKET_SIZE</a></span>, <span class='object_link'><a href="OTACommon.html#MESSAGE_TYPE_POS-constant" title="M2M::OTACommon::MESSAGE_TYPE_POS (constant)">M2M::OTACommon::MESSAGE_TYPE_POS</a></span>, <span class='object_link'><a href="OTACommon.html#MINOR_VERSION-constant" title="M2M::OTACommon::MINOR_VERSION (constant)">M2M::OTACommon::MINOR_VERSION</a></span>, <span class='object_link'><a href="OTACommon.html#MOBILE_ORIGINATED_ACK-constant" title="M2M::OTACommon::MOBILE_ORIGINATED_ACK (constant)">M2M::OTACommon::MOBILE_ORIGINATED_ACK</a></span>, <span class='object_link'><a href="OTACommon.html#MOBILE_ORIGINATED_EVENT-constant" title="M2M::OTACommon::MOBILE_ORIGINATED_EVENT (constant)">M2M::OTACommon::MOBILE_ORIGINATED_EVENT</a></span>, <span class='object_link'><a href="OTACommon.html#MOBILE_TERMINATED_ACK-constant" title="M2M::OTACommon::MOBILE_TERMINATED_ACK (constant)">M2M::OTACommon::MOBILE_TERMINATED_ACK</a></span>, <span class='object_link'><a href="OTACommon.html#MOBILE_TERMINATED_EVENT-constant" title="M2M::OTACommon::MOBILE_TERMINATED_EVENT (constant)">M2M::OTACommon::MOBILE_TERMINATED_EVENT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJBODY_VALUE_FORMATS-constant" title="M2M::OTACommon::OBJBODY_VALUE_FORMATS (constant)">M2M::OTACommon::OBJBODY_VALUE_FORMATS</a></span>, <span class='object_link'><a href="OTACommon.html#OBJBODY_VARIABLE_TYPES-constant" title="M2M::OTACommon::OBJBODY_VARIABLE_TYPES (constant)">M2M::OTACommon::OBJBODY_VARIABLE_TYPES</a></span>, <span class='object_link'><a href="OTACommon.html#OBJHEADER_FORMAT-constant" title="M2M::OTACommon::OBJHEADER_FORMAT (constant)">M2M::OTACommon::OBJHEADER_FORMAT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJHEADER_SIZE-constant" title="M2M::OTACommon::OBJHEADER_SIZE (constant)">M2M::OTACommon::OBJHEADER_SIZE</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_ARRAY_BYTE-constant" title="M2M::OTACommon::OBJTYPE_ARRAY_BYTE (constant)">M2M::OTACommon::OBJTYPE_ARRAY_BYTE</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_ARRAY_FLOAT-constant" title="M2M::OTACommon::OBJTYPE_ARRAY_FLOAT (constant)">M2M::OTACommon::OBJTYPE_ARRAY_FLOAT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_ARRAY_INT-constant" title="M2M::OTACommon::OBJTYPE_ARRAY_INT (constant)">M2M::OTACommon::OBJTYPE_ARRAY_INT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_BYTE-constant" title="M2M::OTACommon::OBJTYPE_BYTE (constant)">M2M::OTACommon::OBJTYPE_BYTE</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_FLOAT-constant" title="M2M::OTACommon::OBJTYPE_FLOAT (constant)">M2M::OTACommon::OBJTYPE_FLOAT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_INT-constant" title="M2M::OTACommon::OBJTYPE_INT (constant)">M2M::OTACommon::OBJTYPE_INT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_LABELS-constant" title="M2M::OTACommon::OBJTYPE_LABELS (constant)">M2M::OTACommon::OBJTYPE_LABELS</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_STRING-constant" title="M2M::OTACommon::OBJTYPE_STRING (constant)">M2M::OTACommon::OBJTYPE_STRING</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_TIMESTAMP-constant" title="M2M::OTACommon::OBJTYPE_TIMESTAMP (constant)">M2M::OTACommon::OBJTYPE_TIMESTAMP</a></span>, <span class='object_link'><a href="OTACommon.html#PROTOCOL_VERSION_POS-constant" title="M2M::OTACommon::PROTOCOL_VERSION_POS (constant)">M2M::OTACommon::PROTOCOL_VERSION_POS</a></span>, <span class='object_link'><a href="OTACommon.html#SEQ_ID_POS-constant" title="M2M::OTACommon::SEQ_ID_POS (constant)">M2M::OTACommon::SEQ_ID_POS</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_FLOAT_DOUBLE-constant" title="M2M::OTACommon::SIZE_FLOAT_DOUBLE (constant)">M2M::OTACommon::SIZE_FLOAT_DOUBLE</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_FLOAT_SINGLE-constant" title="M2M::OTACommon::SIZE_FLOAT_SINGLE (constant)">M2M::OTACommon::SIZE_FLOAT_SINGLE</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_INT_LONG-constant" title="M2M::OTACommon::SIZE_INT_LONG (constant)">M2M::OTACommon::SIZE_INT_LONG</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_INT_SHORT-constant" title="M2M::OTACommon::SIZE_INT_SHORT (constant)">M2M::OTACommon::SIZE_INT_SHORT</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_INT_TINY-constant" title="M2M::OTACommon::SIZE_INT_TINY (constant)">M2M::OTACommon::SIZE_INT_TINY</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_OF_FLOAT-constant" title="M2M::OTACommon::SIZE_OF_FLOAT (constant)">M2M::OTACommon::SIZE_OF_FLOAT</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_OF_TIMESTAMP-constant" title="M2M::OTACommon::SIZE_OF_TIMESTAMP (constant)">M2M::OTACommon::SIZE_OF_TIMESTAMP</a></span>, <span class='object_link'><a href="OTACommon.html#TIMESTAMP_POS-constant" title="M2M::OTACommon::TIMESTAMP_POS (constant)">M2M::OTACommon::TIMESTAMP_POS</a></span></p>
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#auto_id-instance_method" title="#auto_id (instance method)">- (Object) <strong>auto_id</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute auto_id.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#event_code-instance_method" title="#event_code (instance method)">- (Object) <strong>event_code</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute event_code.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#major_version-instance_method" title="#major_version (instance method)">- (Object) <strong>major_version</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute major_version.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#message_type-instance_method" title="#message_type (instance method)">- (Object) <strong>message_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute message_type.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#minor_version-instance_method" title="#minor_version (instance method)">- (Object) <strong>minor_version</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute minor_version.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#objects-instance_method" title="#objects (instance method)">- (Object) <strong>objects</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute objects.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sequence_number-instance_method" title="#sequence_number (instance method)">- (Object) <strong>sequence_number</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute sequence_number.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#timestamp-instance_method" title="#timestamp (instance method)">- (Object) <strong>timestamp</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute timestamp.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#%3C%3C-instance_method" title="#&lt;&lt; (instance method)">- (Object) <strong>&lt;&lt;</strong>(obj) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#from_w-instance_method" title="#from_w (instance method)">- (Object) <strong>from_w</strong>(message) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#header-instance_method" title="#header (instance method)">- (String) <strong>header</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Binary string header of the message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (OTAMessage) <strong>initialize</strong>(p = {}) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of OTAMessage.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_hex-instance_method" title="#to_hex (instance method)">- (Object) <strong>to_hex</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_s-instance_method" title="#to_s (instance method)">- (Object) <strong>to_s</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_w-instance_method" title="#to_w (instance method)">- (Object) <strong>to_w</strong>(calc_crc = true) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="OTACommon.html" title="M2M::OTACommon (module)">OTACommon</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="OTACommon.html#crc-instance_method" title="M2M::OTACommon#crc (method)">#crc</a></span>, <span class='object_link'><a href="OTACommon.html#current_timestamp-instance_method" title="M2M::OTACommon#current_timestamp (method)">#current_timestamp</a></span>, <span class='object_link'><a href="OTACommon.html#htonq-instance_method" title="M2M::OTACommon#htonq (method)">#htonq</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="M2M::OTAMessage (class)">OTAMessage</a></span></tt>) <strong>initialize</strong>(p = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of OTAMessage</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 12</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='symbol'>:data</span><span class='rbracket'>]</span> <span class='kw'>then</span>
+    <span class='id identifier rubyid_from_w'>from_w</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='symbol'>:data</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@message_type</span>  <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='symbol'>:message_type</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='int'>0</span>
+    <span class='ivar'>@major_version</span> <span class='op'>=</span> <span class='const'>MAJOR_VERSION</span>
+    <span class='ivar'>@minor_version</span> <span class='op'>=</span> <span class='const'>MINOR_VERSION</span>
+    <span class='ivar'>@event_code</span>    <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='symbol'>:event_code</span><span class='rbracket'>]</span>   <span class='op'>||</span> <span class='int'>0</span>
+    <span class='ivar'>@sequence_number</span>   <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='symbol'>:sequence_number</span><span class='rbracket'>]</span>  <span class='op'>||</span> <span class='int'>0</span>
+    <span class='ivar'>@timestamp</span>    <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='symbol'>:timestamp</span><span class='rbracket'>]</span>   <span class='op'>||</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>*</span> <span class='int'>1000</span>
+    <span class='ivar'>@objects</span>      <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@auto_id</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="auto_id=-instance_method"></span>
+      <span id="auto_id-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="auto_id-instance_method">
+  
+    - (<tt>Object</tt>) <strong>auto_id</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute auto_id</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_auto_id'>auto_id</span>
+  <span class='ivar'>@auto_id</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="event_code=-instance_method"></span>
+      <span id="event_code-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="event_code-instance_method">
+  
+    - (<tt>Object</tt>) <strong>event_code</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute event_code</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_event_code'>event_code</span>
+  <span class='ivar'>@event_code</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="major_version-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="major_version-instance_method">
+  
+    - (<tt>Object</tt>) <strong>major_version</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute major_version</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 9</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_major_version'>major_version</span>
+  <span class='ivar'>@major_version</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="message_type=-instance_method"></span>
+      <span id="message_type-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="message_type-instance_method">
+  
+    - (<tt>Object</tt>) <strong>message_type</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute message_type</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_message_type'>message_type</span>
+  <span class='ivar'>@message_type</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="minor_version-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="minor_version-instance_method">
+  
+    - (<tt>Object</tt>) <strong>minor_version</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute minor_version</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 9</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_minor_version'>minor_version</span>
+  <span class='ivar'>@minor_version</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="objects-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="objects-instance_method">
+  
+    - (<tt>Object</tt>) <strong>objects</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute objects</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_objects'>objects</span>
+  <span class='ivar'>@objects</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="sequence_number=-instance_method"></span>
+      <span id="sequence_number-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="sequence_number-instance_method">
+  
+    - (<tt>Object</tt>) <strong>sequence_number</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute sequence_number</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_sequence_number'>sequence_number</span>
+  <span class='ivar'>@sequence_number</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="timestamp=-instance_method"></span>
+      <span id="timestamp-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="timestamp-instance_method">
+  
+    - (<tt>Object</tt>) <strong>timestamp</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute timestamp</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_timestamp'>timestamp</span>
+  <span class='ivar'>@timestamp</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="<<-instance_method">
+  
+    - (<tt>Object</tt>) <strong>&lt;&lt;</strong>(obj) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="OTAException.html" title="M2M::OTAException (class)">OTAException</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='op'>&lt;&lt;</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='const'>OTAException</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Invalid object added to message</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='kw'>not</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span> <span class='const'>OTAObject</span>
+  <span class='ivar'>@objects</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_obj'>obj</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="from_w-instance_method">
+  
+    - (<tt>Object</tt>) <strong>from_w</strong>(message) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>Binary</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>string containing a received OTA message</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_from_w'>from_w</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_header'>header</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CCCnQ</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@message_type</span>     <span class='op'>=</span> <span class='id identifier rubyid_header'>header</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='ivar'>@major_version</span>    <span class='op'>=</span> <span class='id identifier rubyid_header'>header</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>&gt;&gt;</span> <span class='int'>4</span>
+  <span class='ivar'>@minor_version</span>    <span class='op'>=</span> <span class='id identifier rubyid_header'>header</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>&amp;</span> <span class='int'>0x0F</span>
+  <span class='ivar'>@event_code</span>       <span class='op'>=</span> <span class='id identifier rubyid_header'>header</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='ivar'>@sequence_number</span>  <span class='op'>=</span> <span class='id identifier rubyid_header'>header</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='ivar'>@timestamp</span>        <span class='op'>=</span> <span class='id identifier rubyid_htonq'>htonq</span><span class='lparen'>(</span><span class='id identifier rubyid_header'>header</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='ivar'>@objects</span>          <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@auto_id</span>          <span class='op'>=</span> <span class='int'>0</span>
+
+  <span class='id identifier rubyid_message_length'>message_length</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
+  <span class='id identifier rubyid_message_offset'>message_offset</span> <span class='op'>=</span> <span class='int'>14</span> <span class='comment'># First index of objects
+</span>
+  <span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='lbracket'>[</span><span class='id identifier rubyid_message_offset'>message_offset</span><span class='op'>..</span><span class='id identifier rubyid_message_length'>message_length</span><span class='rbracket'>]</span>
+  <span class='kw'>while</span> <span class='id identifier rubyid_message_offset'>message_offset</span> <span class='op'>!=</span> <span class='id identifier rubyid_message_length'>message_length</span> <span class='op'>-</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_obj_header'>obj_header</span> <span class='op'>=</span> <span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CC</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_obj_id'>obj_id</span>     <span class='op'>=</span> <span class='id identifier rubyid_obj_header'>obj_header</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_obj_type'>obj_type</span>   <span class='op'>=</span> <span class='id identifier rubyid_obj_header'>obj_header</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+
+    <span class='kw'>case</span> <span class='id identifier rubyid_obj_type'>obj_type</span>
+      <span class='kw'>when</span> <span class='const'>OBJTYPE_BYTE</span>
+        <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>OTAByte</span><span class='period'>.</span><span class='id identifier rubyid_from_w'>from_w</span><span class='lparen'>(</span><span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span><span class='rparen'>)</span>
+      <span class='kw'>when</span> <span class='const'>OBJTYPE_INT</span>
+        <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>OTAInt</span><span class='period'>.</span><span class='id identifier rubyid_from_w'>from_w</span><span class='lparen'>(</span><span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span><span class='rparen'>)</span>
+      <span class='kw'>when</span> <span class='const'>OBJTYPE_FLOAT</span>
+        <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>OTAFloat</span><span class='period'>.</span><span class='id identifier rubyid_from_w'>from_w</span><span class='lparen'>(</span><span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span><span class='rparen'>)</span>
+      <span class='kw'>when</span> <span class='const'>OBJTYPE_STRING</span>
+        <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>OTAString</span><span class='period'>.</span><span class='id identifier rubyid_from_w'>from_w</span><span class='lparen'>(</span><span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span><span class='rparen'>)</span>
+      <span class='kw'>when</span> <span class='const'>OBJTYPE_ARRAY_FLOAT</span>
+        <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>OTAFloatArray</span><span class='period'>.</span><span class='id identifier rubyid_from_w'>from_w</span><span class='lparen'>(</span><span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span><span class='rparen'>)</span>
+      <span class='kw'>when</span> <span class='const'>OBJTYPE_ARRAY_BYTE</span>
+        <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>OTAByteArray</span><span class='period'>.</span><span class='id identifier rubyid_from_w'>from_w</span><span class='lparen'>(</span><span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span><span class='rparen'>)</span>
+      <span class='kw'>when</span> <span class='const'>OBJTYPE_ARRAY_INT</span>
+        <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>OTAIntArray</span><span class='period'>.</span><span class='id identifier rubyid_from_w'>from_w</span><span class='lparen'>(</span><span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span><span class='rparen'>)</span>
+      <span class='kw'>when</span> <span class='const'>OBJTYPE_TIMESTAMP</span>
+        <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>OTATimestamp</span><span class='period'>.</span><span class='id identifier rubyid_from_w'>from_w</span><span class='lparen'>(</span><span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='const'>OTAException</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Invalid object type in message at byte %d</span><span class='tstring_end'>'</span></span> <span class='op'>%</span> <span class='id identifier rubyid_message_offset'>message_offset</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='ivar'>@objects</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_obj'>obj</span>
+
+    <span class='id identifier rubyid_message_offset'>message_offset</span> <span class='op'>+=</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span>
+    <span class='id identifier rubyid_remaining_buffer'>remaining_buffer</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='lbracket'>[</span><span class='id identifier rubyid_message_offset'>message_offset</span><span class='op'>..</span><span class='id identifier rubyid_message_length'>message_length</span><span class='rbracket'>]</span>
+
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_message_crc'>message_crc</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span><span class='lbracket'>[</span><span class='id identifier rubyid_message_offset'>message_offset</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>C</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_obj_crc'>obj_crc</span>  <span class='op'>=</span> <span class='id identifier rubyid_crc'>crc</span><span class='lparen'>(</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_to_w'>to_w</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+  <span class='comment'>#raise OTAException.new(&quot;CRC error&quot;) if message_crc != obj_crc
+</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="header-instance_method">
+  
+    - (<tt>String</tt>) <strong>header</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>Binary string header of the message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Binary string header of the message</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_header'>header</span>
+  <span class='id identifier rubyid_version'>version</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_major_version'>major_version</span> <span class='op'>&lt;&lt;</span> <span class='int'>4</span><span class='rparen'>)</span> <span class='op'>|</span> <span class='id identifier rubyid_minor_version'>minor_version</span>
+  <span class='id identifier rubyid_header'>header</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_message_type'>message_type</span><span class='comma'>,</span> <span class='id identifier rubyid_version'>version</span><span class='comma'>,</span> <span class='id identifier rubyid_event_code'>event_code</span><span class='comma'>,</span> <span class='id identifier rubyid_sequence_number'>sequence_number</span><span class='comma'>,</span> <span class='id identifier rubyid_htonq'>htonq</span><span class='lparen'>(</span><span class='id identifier rubyid_timestamp'>timestamp</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_header'>header</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>CCCnQ</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_hex-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_hex</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_hex'>to_hex</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_to_w'>to_w</span><span class='period'>.</span><span class='id identifier rubyid_each_byte'>each_byte</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_byte'>byte</span><span class='op'>|</span> <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>%x</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='id identifier rubyid_byte'>byte</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_s-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_s</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 122</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_s'>to_s</span>
+  <span class='lbracket'>[</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;ota&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> &lt;raw&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_to_hex'>to_hex</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/raw&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> &lt;header&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;type&gt;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@message_type</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/type&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;version&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>   &lt;major&gt;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@major_version</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/major&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>   &lt;minor&gt;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@minor_version</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/minor&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;/version&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;eventcode&gt;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@event_code</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/eventcode&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;sequenceid&gt;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@sequence_number</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/sequenceid&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;timestamp&gt;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@timestamp</span><span class='rbrace'>}</span><span class='tstring_content'>&lt;/timestamp&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> &lt;/header&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> &lt;objects&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='op'>*</span><span class='ivar'>@objects</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_object'>object</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>   </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_object'>object</span><span class='rbrace'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> &lt;/objects&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/ota&gt;\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_w-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_w</strong>(calc_crc = true) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_message.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_w'>to_w</span><span class='lparen'>(</span><span class='id identifier rubyid_calc_crc'>calc_crc</span> <span class='op'>=</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='id identifier rubyid_header'>header</span>
+  <span class='id identifier rubyid_message'>message</span> <span class='op'>+=</span> <span class='lbracket'>[</span><span class='ivar'>@objects</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>C</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@auto_id</span> <span class='kw'>then</span>
+    <span class='id identifier rubyid_auto_id'>auto_id</span> <span class='op'>=</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_auto_set'>auto_set</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_o'>o</span><span class='op'>|</span>
+      <span class='id identifier rubyid_o'>o</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span> <span class='op'>=</span> <span class='id identifier rubyid_auto_id'>auto_id</span>
+      <span class='id identifier rubyid_auto_id'>auto_id</span> <span class='op'>+=</span> <span class='int'>1</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@objects</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_object'>object</span><span class='op'>|</span>
+    <span class='id identifier rubyid_auto_set'>auto_set</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_auto_set'>auto_set</span>
+    <span class='id identifier rubyid_message'>message</span> <span class='op'>+=</span> <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_to_w'>to_w</span>
+  <span class='kw'>end</span>
+  <span class='comment'># Checksum byte
+</span>  <span class='id identifier rubyid_message'>message</span> <span class='op'>+=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_crc'>crc</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_pack'>pack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>C</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_calc_crc'>calc_crc</span>
+  <span class='id identifier rubyid_message'>message</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Fri Apr 27 14:53:45 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>

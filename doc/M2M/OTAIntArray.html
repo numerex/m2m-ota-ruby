@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: M2M::OTAIntArray
+  
+    &mdash; Documentation by YARD 0.7.5
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (O)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../M2M.html" title="M2M (module)">M2M</a></span></span>
+     &raquo; 
+    <span class="title">OTAIntArray</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: M2M::OTAIntArray
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="OTAObject.html" title="M2M::OTAObject (class)">OTAObject</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="OTAObject.html" title="M2M::OTAObject (class)">OTAObject</a></span></li>
+          
+            <li class="next">M2M::OTAIntArray</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/m2m/ota_int_array.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+
+
+
+  <h2>Constant Summary</h2>
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="OTACommon.html" title="M2M::OTACommon (module)">OTACommon</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="OTACommon.html#EVENT_CODE_POS-constant" title="M2M::OTACommon::EVENT_CODE_POS (constant)">M2M::OTACommon::EVENT_CODE_POS</a></span>, <span class='object_link'><a href="OTACommon.html#IMPLIED_SIZE_BY_FORMAT-constant" title="M2M::OTACommon::IMPLIED_SIZE_BY_FORMAT (constant)">M2M::OTACommon::IMPLIED_SIZE_BY_FORMAT</a></span>, <span class='object_link'><a href="OTACommon.html#IS_BIG_ENDIAN-constant" title="M2M::OTACommon::IS_BIG_ENDIAN (constant)">M2M::OTACommon::IS_BIG_ENDIAN</a></span>, <span class='object_link'><a href="OTACommon.html#MAJOR_VERSION-constant" title="M2M::OTACommon::MAJOR_VERSION (constant)">M2M::OTACommon::MAJOR_VERSION</a></span>, <span class='object_link'><a href="OTACommon.html#MAX_PACKET_SIZE-constant" title="M2M::OTACommon::MAX_PACKET_SIZE (constant)">M2M::OTACommon::MAX_PACKET_SIZE</a></span>, <span class='object_link'><a href="OTACommon.html#MESSAGE_TYPE_POS-constant" title="M2M::OTACommon::MESSAGE_TYPE_POS (constant)">M2M::OTACommon::MESSAGE_TYPE_POS</a></span>, <span class='object_link'><a href="OTACommon.html#MINOR_VERSION-constant" title="M2M::OTACommon::MINOR_VERSION (constant)">M2M::OTACommon::MINOR_VERSION</a></span>, <span class='object_link'><a href="OTACommon.html#MOBILE_ORIGINATED_ACK-constant" title="M2M::OTACommon::MOBILE_ORIGINATED_ACK (constant)">M2M::OTACommon::MOBILE_ORIGINATED_ACK</a></span>, <span class='object_link'><a href="OTACommon.html#MOBILE_ORIGINATED_EVENT-constant" title="M2M::OTACommon::MOBILE_ORIGINATED_EVENT (constant)">M2M::OTACommon::MOBILE_ORIGINATED_EVENT</a></span>, <span class='object_link'><a href="OTACommon.html#MOBILE_TERMINATED_ACK-constant" title="M2M::OTACommon::MOBILE_TERMINATED_ACK (constant)">M2M::OTACommon::MOBILE_TERMINATED_ACK</a></span>, <span class='object_link'><a href="OTACommon.html#MOBILE_TERMINATED_EVENT-constant" title="M2M::OTACommon::MOBILE_TERMINATED_EVENT (constant)">M2M::OTACommon::MOBILE_TERMINATED_EVENT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJBODY_VALUE_FORMATS-constant" title="M2M::OTACommon::OBJBODY_VALUE_FORMATS (constant)">M2M::OTACommon::OBJBODY_VALUE_FORMATS</a></span>, <span class='object_link'><a href="OTACommon.html#OBJBODY_VARIABLE_TYPES-constant" title="M2M::OTACommon::OBJBODY_VARIABLE_TYPES (constant)">M2M::OTACommon::OBJBODY_VARIABLE_TYPES</a></span>, <span class='object_link'><a href="OTACommon.html#OBJHEADER_FORMAT-constant" title="M2M::OTACommon::OBJHEADER_FORMAT (constant)">M2M::OTACommon::OBJHEADER_FORMAT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJHEADER_SIZE-constant" title="M2M::OTACommon::OBJHEADER_SIZE (constant)">M2M::OTACommon::OBJHEADER_SIZE</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_ARRAY_BYTE-constant" title="M2M::OTACommon::OBJTYPE_ARRAY_BYTE (constant)">M2M::OTACommon::OBJTYPE_ARRAY_BYTE</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_ARRAY_FLOAT-constant" title="M2M::OTACommon::OBJTYPE_ARRAY_FLOAT (constant)">M2M::OTACommon::OBJTYPE_ARRAY_FLOAT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_ARRAY_INT-constant" title="M2M::OTACommon::OBJTYPE_ARRAY_INT (constant)">M2M::OTACommon::OBJTYPE_ARRAY_INT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_BYTE-constant" title="M2M::OTACommon::OBJTYPE_BYTE (constant)">M2M::OTACommon::OBJTYPE_BYTE</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_FLOAT-constant" title="M2M::OTACommon::OBJTYPE_FLOAT (constant)">M2M::OTACommon::OBJTYPE_FLOAT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_INT-constant" title="M2M::OTACommon::OBJTYPE_INT (constant)">M2M::OTACommon::OBJTYPE_INT</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_LABELS-constant" title="M2M::OTACommon::OBJTYPE_LABELS (constant)">M2M::OTACommon::OBJTYPE_LABELS</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_STRING-constant" title="M2M::OTACommon::OBJTYPE_STRING (constant)">M2M::OTACommon::OBJTYPE_STRING</a></span>, <span class='object_link'><a href="OTACommon.html#OBJTYPE_TIMESTAMP-constant" title="M2M::OTACommon::OBJTYPE_TIMESTAMP (constant)">M2M::OTACommon::OBJTYPE_TIMESTAMP</a></span>, <span class='object_link'><a href="OTACommon.html#PROTOCOL_VERSION_POS-constant" title="M2M::OTACommon::PROTOCOL_VERSION_POS (constant)">M2M::OTACommon::PROTOCOL_VERSION_POS</a></span>, <span class='object_link'><a href="OTACommon.html#SEQ_ID_POS-constant" title="M2M::OTACommon::SEQ_ID_POS (constant)">M2M::OTACommon::SEQ_ID_POS</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_FLOAT_DOUBLE-constant" title="M2M::OTACommon::SIZE_FLOAT_DOUBLE (constant)">M2M::OTACommon::SIZE_FLOAT_DOUBLE</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_FLOAT_SINGLE-constant" title="M2M::OTACommon::SIZE_FLOAT_SINGLE (constant)">M2M::OTACommon::SIZE_FLOAT_SINGLE</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_INT_LONG-constant" title="M2M::OTACommon::SIZE_INT_LONG (constant)">M2M::OTACommon::SIZE_INT_LONG</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_INT_SHORT-constant" title="M2M::OTACommon::SIZE_INT_SHORT (constant)">M2M::OTACommon::SIZE_INT_SHORT</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_INT_TINY-constant" title="M2M::OTACommon::SIZE_INT_TINY (constant)">M2M::OTACommon::SIZE_INT_TINY</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_OF_FLOAT-constant" title="M2M::OTACommon::SIZE_OF_FLOAT (constant)">M2M::OTACommon::SIZE_OF_FLOAT</a></span>, <span class='object_link'><a href="OTACommon.html#SIZE_OF_TIMESTAMP-constant" title="M2M::OTACommon::SIZE_OF_TIMESTAMP (constant)">M2M::OTACommon::SIZE_OF_TIMESTAMP</a></span>, <span class='object_link'><a href="OTACommon.html#TIMESTAMP_POS-constant" title="M2M::OTACommon::TIMESTAMP_POS (constant)">M2M::OTACommon::TIMESTAMP_POS</a></span></p>
+
+
+
+
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="OTAObject.html" title="M2M::OTAObject (class)">OTAObject</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="OTAObject.html#id-instance_method" title="M2M::OTAObject#id (method)">#id</a></span>, <span class='object_link'><a href="OTAObject.html#size-instance_method" title="M2M::OTAObject#size (method)">#size</a></span>, <span class='object_link'><a href="OTAObject.html#type-instance_method" title="M2M::OTAObject#type (method)">#type</a></span>, <span class='object_link'><a href="OTAObject.html#value-instance_method" title="M2M::OTAObject#value (method)">#value</a></span></p>
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expected_type-class_method" title="expected_type (class method)">+ (Object) <strong>expected_type</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (OTAIntArray) <strong>initialize</strong>(value, size = SIZE_INT_LONG, id = 0) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of OTAIntArray.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="OTAObject.html" title="M2M::OTAObject (class)">OTAObject</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="OTAObject.html#expected_type-instance_method" title="M2M::OTAObject#expected_type (method)">#expected_type</a></span>, <span class='object_link'><a href="OTAObject.html#from_w-class_method" title="M2M::OTAObject.from_w (method)">from_w</a></span>, <span class='object_link'><a href="OTAObject.html#length-instance_method" title="M2M::OTAObject#length (method)">#length</a></span>, <span class='object_link'><a href="OTAObject.html#packable_value-instance_method" title="M2M::OTAObject#packable_value (method)">#packable_value</a></span>, <span class='object_link'><a href="OTAObject.html#to_s-instance_method" title="M2M::OTAObject#to_s (method)">#to_s</a></span>, <span class='object_link'><a href="OTAObject.html#to_w-instance_method" title="M2M::OTAObject#to_w (method)">#to_w</a></span>, <span class='object_link'><a href="OTAObject.html#unpack_value-class_method" title="M2M::OTAObject.unpack_value (method)">unpack_value</a></span>, <span class='object_link'><a href="OTAObject.html#value_string-instance_method" title="M2M::OTAObject#value_string (method)">#value_string</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="OTACommon.html" title="M2M::OTACommon (module)">OTACommon</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="OTACommon.html#crc-instance_method" title="M2M::OTACommon#crc (method)">#crc</a></span>, <span class='object_link'><a href="OTACommon.html#current_timestamp-instance_method" title="M2M::OTACommon#current_timestamp (method)">#current_timestamp</a></span>, <span class='object_link'><a href="OTACommon.html#htonq-instance_method" title="M2M::OTACommon#htonq (method)">#htonq</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="M2M::OTAIntArray (class)">OTAIntArray</a></span></tt>) <strong>initialize</strong>(value, size = SIZE_INT_LONG, id = 0) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+<p>A new instance of OTAIntArray</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_int_array.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='comma'>,</span><span class='id identifier rubyid_size'>size</span> <span class='op'>=</span> <span class='const'>SIZE_INT_LONG</span><span class='comma'>,</span><span class='id identifier rubyid_id'>id</span> <span class='op'>=</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span> <span class='op'>==</span> <span class='const'>Hash</span> <span class='op'>?</span> <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='kw'>super</span><span class='lparen'>(</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_id'>id</span><span class='comma'>,</span><span class='symbol'>:size</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_size'>size</span><span class='comma'>,</span><span class='symbol'>:value</span> <span class='op'>=&gt;</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="expected_type-class_method">
+  
+    + (<tt>Object</tt>) <strong>expected_type</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/m2m/ota_int_array.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expected_type'>expected_type</span>
+  <span class='const'>OBJTYPE_ARRAY_INT</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Fri Apr 27 14:53:45 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
