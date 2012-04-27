@@ -1,4 +1,5 @@
-=== Numerex Machine-to-Machine Over the Air Protocol
+Numerex Machine-to-Machine Over the Air Protocol [![Build Status](https://secure.travis-ci.org/spemmons/m2m-ota-ruby.png?branch=master)](http://travis-ci.org/spemmons/m2m-ota-ruby)
+================================================
 
 === Installation
 
