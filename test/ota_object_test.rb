@@ -113,10 +113,10 @@ module M2M
 
     def test_ota_timestamp
       time = Time.utc(2001,1,1)
-      assert_equal %(<object id="0" type="timestamp" value="978307200000"/>),(tester = OTATimestamp.new(time)).to_s
+      assert_equal %(<object id="0" type="timestamp" value="2001-01-01T00:00:00.000"/>),(tester = OTATimestamp.new(time)).to_s
       assert_equal %(\x00\x04\x00\x00\x00\xE3\xC7\xA74\x00),tester.to_w
       assert_equal 10,tester.length
-      assert_equal %(<object id="0" type="timestamp" value="978307200000"/>),OTATimestamp.from_w(tester.to_w).to_s
+      assert_equal %(<object id="0" type="timestamp" value="2001-01-01T00:00:00.000"/>),OTATimestamp.from_w(tester.to_w).to_s
     end
 
   end

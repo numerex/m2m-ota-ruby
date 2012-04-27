@@ -33,9 +33,13 @@ module M2M
           raise OTAException.new("Value format not found for #{self}")
       end
 
-      unpacked_value = buffer[value_offset,(length || 1) * (scalar_size || 1)].unpack(value_format)
+      unpacked_value = unpack_value(buffer[value_offset,(length || 1) * (scalar_size || IMPLIED_SIZE_BY_FORMAT[value_format[0]] || 1)],value_format)
 
       new(:id => id,:size => scalar_size,:value => length ? unpacked_value : unpacked_value[0])
+    end
+
+    def self.unpack_value(buffer,format)
+      buffer.unpack(format)
     end
 
     def self.expected_type
@@ -48,8 +52,12 @@ module M2M
       parts << %(id="#{@id}")
       parts << %(type="#{OBJTYPE_LABELS[@type] || "unknown-#{@type}"}")
       parts << %(size="#{@size}") if @size
-      parts << %(value="#{@value}"/>)
+      parts << %(value="#{value_string}"/>)
       parts.join(' ')
+    end
+
+    def value_string
+      @value.to_s
     end
 
     def to_w
@@ -75,7 +83,11 @@ module M2M
           raise OTAException.new("Value format not found for #{self.class}")
       end
 
-      (preamble + Array(@value)).pack(format)
+      (preamble + Array(packable_value)).pack(format)
+    end
+
+    def packable_value
+      @value
     end
 
     def expected_type

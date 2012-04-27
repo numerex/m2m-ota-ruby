@@ -23,19 +23,16 @@ module M2M
       OBJTYPE_TIMESTAMP
     end
 
-    def to_w
-      [@id, @type, htonq(@value)].flatten.pack("CCQ")
+    def self.unpack_value(buffer,format)
+      buffer.unpack(format).collect{|result| htonq(result)}
     end
 
-    def self.from_w(buffer)
-      obj = buffer.unpack('CCQ')
-      objId = obj[0]
-      objType = obj[1]
-      objValue = htonq(obj[2])
+    def packable_value
+      htonq(value)
+    end
 
-      raise OTAException.new('Invalid TIMESTAMP from wire') unless objType == OBJTYPE_TIMESTAMP
-
-      new(objValue, objId)
+    def value_string
+      %(#{Time.at(value / 1000).utc.strftime('%Y-%m-%dT%H:%M:%S')}.%03d) % (value % 1000)
     end
 
   end

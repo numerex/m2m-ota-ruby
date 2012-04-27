@@ -62,6 +62,8 @@ module M2M
     SIZE_INT_SHORT          = 2
     SIZE_INT_LONG           = 4
 
+    IMPLIED_SIZE_BY_FORMAT  = {'Q' => 8}
+
     OBJBODY_VALUE_FORMATS   = {
         OBJTYPE_BYTE        => 'C',
         OBJTYPE_ARRAY_BYTE  => 'C*',
