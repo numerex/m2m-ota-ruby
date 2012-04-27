@@ -12,7 +12,7 @@ module M2M
           super(value)
         when Time
           super(:id => id,:value => value.to_i * 1000)
-        when Fixnum
+        when Fixnum,Bignum
           super(:id => id,:value => value.to_i)
         else
           raise OTAException.new("Invalid timestamp value type: #{value.class}")
